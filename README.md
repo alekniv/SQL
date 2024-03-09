@@ -13,7 +13,93 @@ Luego, se llevarán a cabo modificaciones en su estructura y se cargarán datos 
 ### Entorno
 - Sistema operativo: Ubuntu 22.04.2
 
-###
+### Configuración Ubuntu Server
+
+Conexión por SSH como root
+```
+$ ssh root@server_ip
+```
+
+Creación de un nuevo usuario
+```
+# adduser alekadmin
+```
+
+Otorgamos privilegios administrativos al usuario creado anteriormente
+```
+# usermod -aG sudo alekadmin
+```
+
+Configuración de firewall básico
+
+> Las aplicaciones pueden registrar sus perfiles con UFW tras la instalación. Estos perfiles permiten a UFW administrar estas aplicaciones por su nombre. OpenSSH, el servicio que nos permite conectarnos a nuestro servidor ahora, tiene un perfil registrado con UFW.
+```
+# ufw app list
+```
+```
+Output
+Available applications:
+  OpenSSH
+```
+
+Damos permisos de ejecución mediante SSH
+```
+# ufw allow OpenSSH
+```
+
+Habilitamos firewall
+```
+# ufw enable
+```
+
+Comprobamos estado
+```
+# ufw status
+```
+
+```
+Output
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere
+OpenSSH (v6)               ALLOW       Anywhere (v6)
+```
+
+Deslogeamos y ingresamos mediante SSH con autenticación de contraseña
+```
+$ ssh alekadmin@server_ip
+```
+> Para mejorar la seguridad de sus servidores, recomendamos encarecidamente configurar claves SSH en lugar de utilizar la autenticación de contraseña.
+
+### Instalación de MySQL
+
+Primero actualizamos paquetes del servidor
+```
+$ sudo apt update
+```
+
+Luego instalamos mysql-server
+```
+$ sudo apt install mysql-server
+```
+
+Aseguramos que el servicio se este ejecutando mediate el siguiente comando
+```
+$ sudo systemctl start mysql.service
+```
+
+### Configuración de MySQL
+
+Primero ejecutamos script de seguridad
+```
+$ sudo apt mysql_secure¨_installation
+```
+
+
+
+
 
 ## Etapa 1.1: Crear base de datos
 
