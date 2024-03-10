@@ -345,7 +345,11 @@ A. No cambiar el nombre de la tabla.
 B. Eliminar la tabla en el caso de que ya exista dentro de la base de datos.
 C. Mantener los tipos de datos asignados al momento de la importación.
 
-2. Llevar a cabo los siguientes cambios en la tabla CLIENTES_NEPTUNO importada anteriormente. Respetar las consignas detalladas a continuación y utilizar el comando ALTER TABLE:
+```
+$ mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 LABORATORIO CLIENTES_NEPTUNO.csv
+```
+
+3. Llevar a cabo los siguientes cambios en la tabla CLIENTES_NEPTUNO importada anteriormente. Respetar las consignas detalladas a continuación y utilizar el comando ALTER TABLE:
 A. Campo IDCliente: debe ser de tipo VARCHAR, debe admitir hasta 5 caracteres como máximo y debe ser el campo PRIMARY KEY de la tabla.
 B. Campo NombreCompania: debe ser de tipo VARCHAR, debe admitir hasta 100 caracteres como máximo y no puede quedar vacío.
 C. Campo Pais: debe ser de tipo VARCHAR, debe admitir hasta 15 carateres como máximo y no puede quedar vacio.
@@ -368,8 +372,12 @@ ALTER TABLE CLIENTES RENAME Contactos;
 4. Importar el archivo CSV con el nombre CLIENTES a la base de datos LABORATORIO. Y tener en cuenta las siguientes indicaciones:
 A. No cambiar el nombre de la tabla
 B. Mantener los tipos de datos asignados al momento de la importación.
+```
+mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 LABORATORIO CLIENTES.csv
+```
 
-5. Llevar a cabo los siguientes cambios en la tabla CLIENTES importada anteriormente. Respetar las consignas detalladas a continuación:
+
+6. Llevar a cabo los siguientes cambios en la tabla CLIENTES importada anteriormente. Respetar las consignas detalladas a continuación:
 A. Campo Cod_Cliente: debe ser de tipo VARCHAR, debe admitir hasta 7 carateres como máximo y debe ser el campo PRIMARY KEY de la tabla.
 B. Campo Empresa: debe ser de tipo VARCHAR, debe admitir hasta 100 caracteres como máximo y no puede quedar vacío.
 C. Campo Ciudad: debe ser de tipo VARCHAR, debe admitir hasta 25 caracteres como máximo y no puede quedar vacío.
@@ -389,8 +397,11 @@ MODIFY Responsable VARCHAR(30);
 6. Importar el archivo CSV con el nombre PEDIDOS a la base de datos LABORATORIO. Y tener en cuenta las siguientes indicaciones:
 A. No cambiar el nombre de la tabla.
 B. Mantener los tipos de datos asignados al momento de la importación.
+```
+mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 LABORATORIO Pedidos.csv
+```
 
-7. Llevar a cabo los siguientes cambios en la tabla PEDIDOS importada anteriormente. Respetar las consignas detalladas a continuación:
+8. Llevar a cabo los siguientes cambios en la tabla PEDIDOS importada anteriormente. Respetar las consignas detalladas a continuación:
 A. Campo Numero_Pedido: debe ser de tipo INT, sólo debe aceptar valores numéricos enteros y debe ser el campo PRIMARY KEY de la tabla.
 B. Campo Codigo_Cliente: debe ser de tipo VARCHAR, debe admitir hasta 7 caracteres como máximo y no puede quedar vacío.
 C. Campo Fecha_Pedido: debe ser de tipo DATE y su carga es obligatorio.
@@ -410,8 +421,11 @@ MODIFY Enviado ENUM('SI', 'NO');
 8. Importar el achivo CSV: PRODUCTOS a la base de datos LABORATORIO. Y tener en cuenta las siguientes indicaciones:
 A. No cambiar el nombre de la tabla.
 B. Mantener los tipos de datos asignados al momento de la importación.
+```
+mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 Productos.csv
+```
 
-9. Llevar a cabo los siguientes cambios en la tabla PRODUCTOS importada en el paso anterior. Respetar las consignas detalladas a continuación, utilizando el comando ALTER TABLE:
+10. Llevar a cabo los siguientes cambios en la tabla PRODUCTOS importada en el paso anterior. Respetar las consignas detalladas a continuación, utilizando el comando ALTER TABLE:
 A. Campo Cod_Producto: debe ser de tipo INT, sólo debe aceptar valores numéricos enteros y debe ser el campo PRIMARY KEY de la tabla.
 B. Campo Sección: debe ser de tipo VARCHAR, debe admitir hastas 20 caracteres como máximo y no puede quedar vacío.
 C. Campo Nombre: debe ser de tipo VARCHAR, debe admitir hasta 40 carateres como máximo y no puede quedar vacío.
