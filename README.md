@@ -92,11 +92,51 @@ $ sudo systemctl start mysql.service
 
 ### Configuración de MySQL
 
-Primero ejecutamos script de seguridad
+Establecemos contraseña de root
 ```
-$ sudo apt mysql_secure¨_installation
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
 
+Ejecutamos script de seguridad
+```
+$ sudo apt mysql_secure_installation
+```
+
+Si deseamos autenticarnos como root ingresamos el siguiente comando
+```
+$ mysql -u root -p
+```
+
+Una vez finalizado el script, puedes volver a cambiar el método de autenticación que está disponible por defecto:
+```
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+```
+
+Creación de un nuevo usuario en MySQL
+
+> Al instalar MySQL se crea un usuario root que dispone de todos los privilegios para el servidor MySQL. Este también tiene control total sobre cualquier base de datos, tablas y usuarios. Para mejorar el nivel de seguridad, te recomendamos crear un usuario con derechos restringidos.
+
+Accedemos a MySQL
+```
+$ sudo mysql
+```
+
+Creamos el nuevo usuario
+```
+mysql> CREATE USER 'alekadmin'@'localhost' IDENTIFIED WITH BY 'password';
+```
+
+Administración de privilegios al nuevo usuario
+```
+mysql> GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT on *.* TO 'alekadmin'@'localhost' WITH GRANT OPTION;
+```
+
+Actualizamos los privilegios
+```
+mysql> FLUSH PRIVILEGES;
+```
+
+ 
 
 
 
