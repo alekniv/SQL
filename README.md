@@ -373,7 +373,7 @@ ALTER TABLE CLIENTES RENAME Contactos;
 A. No cambiar el nombre de la tabla
 B. Mantener los tipos de datos asignados al momento de la importación.
 ```
-mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 LABORATORIO CLIENTES.csv
+$ mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 LABORATORIO CLIENTES.csv
 ```
 
 
@@ -398,7 +398,7 @@ MODIFY Responsable VARCHAR(30);
 A. No cambiar el nombre de la tabla.
 B. Mantener los tipos de datos asignados al momento de la importación.
 ```
-mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 LABORATORIO Pedidos.csv
+$ mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 LABORATORIO Pedidos.csv
 ```
 
 8. Llevar a cabo los siguientes cambios en la tabla PEDIDOS importada anteriormente. Respetar las consignas detalladas a continuación:
@@ -422,7 +422,7 @@ MODIFY Enviado ENUM('SI', 'NO');
 A. No cambiar el nombre de la tabla.
 B. Mantener los tipos de datos asignados al momento de la importación.
 ```
-mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 Productos.csv
+$ mysqlimport -u alekadmin -p --local --delete --ignore-lines=1 Productos.csv
 ```
 
 10. Llevar a cabo los siguientes cambios en la tabla PRODUCTOS importada en el paso anterior. Respetar las consignas detalladas a continuación, utilizando el comando ALTER TABLE:
