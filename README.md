@@ -458,6 +458,20 @@ MODIFY Ano INT UNSIGNED NOT NULL;
 8. Actualizar los esquemas para corroborar la generación de la tabla PEDIDOS_NEPTUNO dentro de la base de datos LABORATORIO.
 9. Cerrar los scripts con los nombre NACIMIENTOS, PEDIDOS NEPTUNO Y TABLAS EXTRAS.
 
+```
+mysql> source /home/alekadmin/Nacimientos.sql
+mysql> source /home/alekadmin/Pedidos_Neptuno.sql
+mysql> source /home/alekadmin/Tablas_Extras.sql
+```
+
+```
+SHOW TABLES;
+DESCRIBE NACIMIENTOS;
+DESCRIBE Pedidos_Neptuno;
+DESCRIBE Tablas_Extras;
+```
+
+
 ## Etapa 2.3: Consultar tablas
 
 1. Mostrar todo el contenido de la tabla CLIENTES_NEPTUNO importada en el laboratorio anterior.
